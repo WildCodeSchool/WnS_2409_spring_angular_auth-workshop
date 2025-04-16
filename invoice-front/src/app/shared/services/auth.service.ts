@@ -69,12 +69,12 @@ export class AuthService {
       }
   }
 
-  getUserRole(): string | null {
+  getUserRoles(): Object[] | null {
     const token = this.getToken();
     if (!token) return null;
     try {
       const decodedToken: any = jwtDecode(token);
-      return decodedToken.roles?.[0] || null;
+      return decodedToken.roles || null;
     } catch {
       return null;
     }

@@ -8,9 +8,9 @@
       id="label"
       name="label"
       required
-      [(ngModel)]="invoice.label"
+      [(ngModel)]="invoice.description"
     />
-    @if (invoiceForm.submitted && !invoice.label) {
+    @if (invoiceForm.submitted && !invoice.description) {
       <span>Le libellé est requis.</span
     >
     }

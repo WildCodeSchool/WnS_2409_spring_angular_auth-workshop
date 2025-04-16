@@ -1,18 +1,18 @@
 -- Utilisateurs (mot de passe hashé avec BCrypt)
 INSERT INTO users (email, password)
 VALUES
-    ('user1@example.com', '$2a$10$KIXQ5YsmxhqgxIRLjYQ45uhbGf3VNBAswQXfr6KKiKph05t6w5x0C'), -- "password123"
-    ('admin@example.com', '$2a$10$Y3/fZ5H0zRSnYzRfNHmDRu7T/3DHyC3RQpAx4f8oeRkdzF8ZnLO5y'); -- "adminpass"
+    ('user1@example.com', '$2y$10$ZHfgSJRqZ8OAZ0fDDeZO5uA6bEonEIqUqhg.8pYMKQf/t1rQiXUri'), -- "password123"
+    ('admin@example.com', '$2y$10$oWIMtzo5xcvptV.MpNCmDeiaBHdTyNV1EnTmuA0IRn8MNtVOl.DeW'); -- "adminpass"
 
 -- Rôles
 INSERT INTO user_roles (user_id, roles)
 VALUES
-    (1, 'USER'),
-    (2, 'ADMIN');
+    (1, 'ROLE_USER'),
+    (2, 'ROLE_ADMIN');
 
 -- Factures
-INSERT INTO invoice (id, description, amount, date, user_id)
+INSERT INTO invoice (description, amount, date, user_id)
 VALUES
-    (1, 'Facture Electricité Janvier', 89.99, '2024-01-15', 1),
-    (2, 'Facture Eau Février', 42.50, '2024-02-10', 1),
-    (3, 'Facture Internet Mars', 39.90, '2024-03-05', 1);
+    ('Facture Electricité Janvier', 89.99, '2024-01-15', 1),
+    ('Facture Eau Février', 42.50, '2024-02-10', 1),
+    ('Facture Internet Mars', 39.90, '2024-03-05', 1);

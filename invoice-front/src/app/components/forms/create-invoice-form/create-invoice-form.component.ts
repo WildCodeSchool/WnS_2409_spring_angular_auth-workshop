@@ -14,7 +14,7 @@ export class CreateInvoiceFormComponent {
   private router = inject(Router);
 
   invoice = {
-    label: '',
+    description: '',
     amount: 0,
     date: '',
   };

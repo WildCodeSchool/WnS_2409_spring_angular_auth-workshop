@@ -1,9 +1,17 @@
 <nav class="navbar">
   <a routerLink="/">Accueil</a>
+
+  @if (!isLoggedIn()) {
   <a routerLink="/register">S'inscrire</a>
   <a routerLink="/login">Se connecter</a>
-  <a routerLink="/invoices">Mes factures</a>
-  <a routerLink="/invoices/create">Créer une facture</a>
-  <a routerLink="/admin">Admin</a>
-  <button (click)="logout()">Se déconnecter</button>
+  }
+  
+  @if (isLoggedIn()) {
+    <a routerLink="/invoices">Mes factures</a>
+    <a routerLink="/invoices/create">Créer une facture</a>
+    @if (isAdmin()) {
+      <a routerLink="/admin">Admin</a>
+  }
+    <button (click)="logout()">Se déconnecter</button>
+  }
 </nav>

@@ -6,7 +6,7 @@ import { AuthService } from '../../shared/services/auth.service';
   selector: 'app-navbar',
   imports: [RouterLink],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
   authService = inject(AuthService);
@@ -17,7 +17,11 @@ export class NavbarComponent {
   }
 
   isAdmin(): boolean {
-    return this.authService.getUserRole() === 'ADMIN';
+    return (
+      this.authService
+        .getUserRoles()
+        ?.some((role: any) => role.authority === 'ROLE_ADMIN') ?? false
+    );
   }
 
   logout(): void {
